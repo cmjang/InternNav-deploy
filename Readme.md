@@ -1,10 +1,9 @@
 # Unitree Go2 / Go2W / B2 — Edge Deployment Guide
 
 ![ROS 2](https://img.shields.io/badge/ROS2-Supported-blue)
-
 ![Python-3.8+](https://img.shields.io/badge/Python-3.8%2B-yellowgreen)
 
-简体中文文档: [点此查看](./Readme_zh.md)
+简体中文: [点此查看](./Readme_zh.md)
 
 ## Overview
 
