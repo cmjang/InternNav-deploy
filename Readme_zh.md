@@ -169,7 +169,7 @@ pip3 install -e .
 首次运行前，需为启动脚本赋予可执行权限：
 
 ```bash
-cd InternNav/onboard
+cd onboard
 chmod +x start_robot.sh
 ```
 
