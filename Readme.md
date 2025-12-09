@@ -104,7 +104,7 @@ Key modules in `InternNav/onboard`:
 1. Make the launcher executable:
 
 ```bash
-cd InternNav/onboard
+cd onboard
 chmod +x start_robot.sh
 ```
 
