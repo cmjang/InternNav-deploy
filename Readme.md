@@ -1,9 +1,8 @@
 # Unitree Go2 / Go2W / B2 — Edge Deployment Guide
 
-![ROS 2](https://img.shields.io/badge/ROS2-Supported-blue)
-![Python-3.8+](https://img.shields.io/badge/Python-3.8%2B-yellowgreen)
+![ROS 2](https://img.shields.io/badge/ROS2-Supported-blue) ![Python-3.8+](https://img.shields.io/badge/Python-3.8%2B-yellowgreen)
 
-简体中文: [点此查看](./Readme_zh.md)
+简体中文文档: [点此查看](./Readme_zh.md)
 
 ## Overview
 
@@ -121,7 +120,22 @@ ROBOT_IF="eth0"  # change to enp3s0, wlan0, etc. as needed
 ./start_robot.sh
 ```
 
-4. Start the navigation client (example):
+4. Configure and start the navigation client:
+
+Configure the inference server address:
+
+```bash
+cd InternNav
+nano scripts/realworld/http_internvla_client.py
+```
+
+Find the following line and replace `127.0.0.1` with the actual server IP:
+
+```python
+url='http://127.0.0.1:5801/eval_dual'  # replace 127.0.0.1 with the inference server IP
+```
+
+Then start the robot-side modules:
 
 Terminal 1 (robot):
 
@@ -137,7 +151,7 @@ cd InternNav
 python3 scripts/realworld/http_internvla_client.py
 ```
 
-If running a local inference server:
+If running a local inference server, on the server machine:
 
 ```bash
 python3 scripts/realworld/http_internvla_server.py
@@ -154,6 +168,12 @@ Subscribe with RViz2 to validate topics:
 | `/camera/camera/color/image_raw` | `sensor_msgs/Image` | RGB image |
 | `/camera/camera/aligned_depth_to_color/image_raw` | `sensor_msgs/Image` | Aligned depth image |
 | `/odom_bridge` | `nav_msgs/Odometry` | Robot odometry |
+
+Example RViz2 visualization:
+
+<img src="./img/camera_topic.png" alt="RViz2 topic list" style="zoom:50%;" />
+
+<img src="./img/d435.png" alt="RealSense depth image" style="zoom:50%;" />
 
 ---
 
